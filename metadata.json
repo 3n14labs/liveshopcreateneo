@@ -1,0 +1,6 @@
+{
+  "name": "LiveStudio - Live Shopping Background Visual Builder",
+  "description": "A professional visual editor and generator for Live Shopping backgrounds (TikTok, Reels, Shorts, Shopee Live) with mobile ratios, bleeding guides, live overlay previews, and AI generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

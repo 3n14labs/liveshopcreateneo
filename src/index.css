@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Syne:wght@400;700;800&family=Bebas+Neue&family=Montserrat:wght@400;700;900&family=Cinzel:wght@400;700&family=Caveat:wght@400;700&family=Lobster&family=Pacifico&family=Bungee&family=Press+Start+2P&family=Special+Elite&family=Creepster&family=Luckiest+Guy&family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&f[]=cabinet-grotesk@100,200,300,400,500,700,800&f[]=melodrama@300,400,500,600,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom scrollbars for side panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* --- After Effects Motion Engine Keyframes --- */
+
+@keyframes ae-zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(calc(1 + (var(--ae-intensity, 40) / 100) * 0.15)); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ae-drift {
+  0% { transform: translate(0px, 0px) scale(1.08); }
+  25% { transform: translate(calc(var(--ae-intensity, 40) * 0.15px), calc(var(--ae-intensity, 40) * 0.1px)) scale(1.08); }
+  50% { transform: translate(calc(var(--ae-intensity, 40) * -0.1px), calc(var(--ae-intensity, 40) * 0.15px)) scale(1.08); }
+  75% { transform: translate(calc(var(--ae-intensity, 40) * -0.15px), calc(var(--ae-intensity, 40) * -0.1px)) scale(1.08); }
+  100% { transform: translate(0px, 0px) scale(1.08); }
+}
+
+@keyframes ae-swivel {
+  0% { transform: rotate(0deg) scale(1.08); }
+  50% { transform: rotate(calc(var(--ae-intensity, 40) * 0.08deg)) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1.08); }
+}
+
+@keyframes ae-pulse {
+  0% { transform: scale(1); }
+  20% { transform: scale(calc(1 + (var(--ae-intensity, 40) / 100) * 0.04)); }
+  40% { transform: scale(calc(1 + (var(--ae-intensity, 40) / 100) * 0.02)); }
+  60% { transform: scale(calc(1 + (var(--ae-intensity, 40) / 100) * 0.06)); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ae-pan {
+  0% { transform: translateX(calc(var(--ae-intensity, 40) * -0.15px)) scale(1.1); }
+  50% { transform: translateX(calc(var(--ae-intensity, 40) * 0.15px)) scale(1.1); }
+  100% { transform: translateX(calc(var(--ae-intensity, 40) * -0.15px)) scale(1.1); }
+}
+
+@keyframes ae-glitch {
+  0% { transform: translate(0, 0) skew(0deg); filter: hue-rotate(0deg); }
+  10% { transform: translate(calc(var(--ae-intensity, 40) * 0.04px), calc(var(--ae-intensity, 40) * -0.04px)) skew(calc(var(--ae-intensity, 40) * 0.04deg)); }
+  11% { transform: translate(0, 0) skew(0deg); }
+  50% { transform: translate(calc(var(--ae-intensity, 40) * -0.06px), calc(var(--ae-intensity, 40) * 0.06px)) skew(0deg); filter: hue-rotate(60deg); }
+  52% { transform: translate(0, 0) skew(0deg); filter: hue-rotate(0deg); }
+  90% { transform: translate(calc(var(--ae-intensity, 40) * 0.08px), 0px) skew(calc(var(--ae-intensity, 40) * -0.05deg)); }
+  91% { transform: translate(0, 0) skew(0deg); }
+}
+
+/* --- Sticker Layer Keyframes --- */
+
+@keyframes sticker-float {
+  0% { transform: translate(-50%, -50%) translateY(0px) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+  50% { transform: translate(-50%, -50%) translateY(calc(var(--sticker-intensity, 40) * -0.12px)) rotate(calc(var(--sticker-rot, 0deg) + var(--sticker-intensity, 40) * 0.03deg)) scale(var(--sticker-scale, 1)); }
+  100% { transform: translate(-50%, -50%) translateY(0px) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+}
+
+@keyframes sticker-spin {
+  0% { transform: translate(-50%, -50%) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+  100% { transform: translate(-50%, -50%) rotate(calc(var(--sticker-rot, 0deg) + 360deg)) scale(var(--sticker-scale, 1)); }
+}
+
+@keyframes sticker-shake {
+  0% { transform: translate(-50%, -50%) translate(0px, 0px) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+  20% { transform: translate(-50%, -50%) translate(calc(var(--sticker-intensity, 40) * -0.04px), calc(var(--sticker-intensity, 40) * 0.03px)) rotate(calc(var(--sticker-rot, 0deg) + var(--sticker-intensity, 40) * -0.03deg)) scale(var(--sticker-scale, 1)); }
+  40% { transform: translate(-50%, -50%) translate(calc(var(--sticker-intensity, 40) * 0.03px), calc(var(--sticker-intensity, 40) * -0.04px)) rotate(calc(var(--sticker-rot, 0deg) + var(--sticker-intensity, 40) * 0.01deg)) scale(var(--sticker-scale, 1)); }
+  60% { transform: translate(-50%, -50%) translate(calc(var(--sticker-intensity, 40) * -0.03px), calc(var(--sticker-intensity, 40) * -0.03px)) rotate(calc(var(--sticker-rot, 0deg) + var(--sticker-intensity, 40) * -0.01deg)) scale(var(--sticker-scale, 1)); }
+  80% { transform: translate(-50%, -50%) translate(calc(var(--sticker-intensity, 40) * 0.04px), calc(var(--sticker-intensity, 40) * 0.04px)) rotate(calc(var(--sticker-rot, 0deg) + var(--sticker-intensity, 40) * 0.03deg)) scale(var(--sticker-scale, 1)); }
+  100% { transform: translate(-50%, -50%) translate(0px, 0px) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+}
+
+@keyframes sticker-pulse {
+  0% { transform: translate(-50%, -50%) scale(var(--sticker-scale, 1)) rotate(var(--sticker-rot, 0deg)); }
+  50% { transform: translate(-50%, -50%) scale(calc(var(--sticker-scale, 1) * (1 + (var(--sticker-intensity, 40) / 100) * 0.1))) rotate(var(--sticker-rot, 0deg)); }
+  100% { transform: translate(-50%, -50%) scale(var(--sticker-scale, 1)) rotate(var(--sticker-rot, 0deg)); }
+}
+
+@keyframes sticker-slide {
+  0% { transform: translate(-50%, -50%) translateX(calc(var(--sticker-intensity, 40) * -0.12px)) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+  50% { transform: translate(-50%, -50%) translateX(calc(var(--sticker-intensity, 40) * 0.12px)) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+  100% { transform: translate(-50%, -50%) translateX(calc(var(--sticker-intensity, 40) * -0.12px)) rotate(var(--sticker-rot, 0deg)) scale(var(--sticker-scale, 1)); }
+}
+
